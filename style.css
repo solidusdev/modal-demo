@@ -1,0 +1,35 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.space {
+    margin: 1rem 0;
+}
+
+#modal {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    z-index: 99;
+}
+
+#modal p {
+    color: white;
+}
+
+.display {
+    display: block !important;
+}
+
+.pointer {
+    cursor: pointer;
+}

@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Modal</title>
+</head>
+<body>
+
+    <h1 class="space">Modal Popup</h1>
+    <p class="space">Click the button below to display the modal</p>
+    <button class="space" onclick="activate_modal()">click</button>
+
+    <div id="modal">
+        <p class="space">This text is nested inside of the modal</p>
+        <p class="space pointer" onclick="remove_modal()">Click on this text to remove the modal or click anywhere to exit the modal</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/jBCoyeSItVs" allowfullscreen></iframe>
+    </div>
+</body>
+
+<script>
+
+    let modal = document.getElementById("modal");
+    let is_modal_active = false;
+    let iframe = document.querySelector("iframe");
+    
+    let activate_modal = () => {
+        modal.classList.add("display");
+        is_modal_active = true;
+    }
+
+    let remove_modal = () => {
+        modal.classList.remove("display");
+        is_modal_active = false;
+        stop_video();
+    }
+
+    let stop_video = () => {
+        iframe.src = iframe.src
+    }
+    
+    document.addEventListener("click", function(event) {
+        // close the modal when user clicks anywhere in the modal (not nested items inside of the modal)
+        if(is_modal_active === true && event.target.className === "display" ) {
+            modal.classList.remove("display");
+            stop_video();
+        }
+    })
+
+</script>
+</html>
